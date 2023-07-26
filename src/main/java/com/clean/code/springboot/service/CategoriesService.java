@@ -6,6 +6,8 @@ import com.clean.code.springboot.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CategoriesService{
          @Autowired
@@ -25,6 +27,10 @@ public class CategoriesService{
             categories.setDescription_en(categoriesDto.getDescription_en());
             categoryRepository.save(categories);
           return  categories;
+    }
+    public List<Categories> getCategoriesQuery(String name)
+    {
+        return categoryRepository.nameNativeQuery(name);
     }
 
 }

@@ -20,6 +20,7 @@ public class CategoriesResource {
 
     @Autowired
     private CategoryRepository categoryRepository;
+
     @GetMapping("categories/index")
     public ResponseEntity getAllCategories() {
         Categories category = new Categories(1L, "Texnika", "Texnika", "Texnika", 1, "test.jpg", "TexnikaTexnikaTexnika", "TexnikaTexnikaTexnika", "TexnikaTexnikaTexnika", 1);
@@ -31,16 +32,13 @@ public class CategoriesResource {
     }
 
     @GetMapping("categories")
-    public  List<Categories> getAll() {
+    public List<Categories> getAll() {
         return categoryRepository.findAll();
 
-
     }
-    @GetMapping("categories/{id}")
-    public Optional<Categories> getOne(@PathVariable Long id) {
-
-        return categoryRepository.findById(id);
-
+    @GetMapping("categories/{name}")
+    public List<Categories> getCategoriesQuery(@PathVariable String name) {
+        return categoriesService.getCategoriesQuery(name);
     }
     @PostMapping("categories/create")
     public ResponseEntity create(@RequestBody CategoriesDto categoriesDto) {
