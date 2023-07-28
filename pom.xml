@@ -50,7 +50,18 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+		<!-- https://mvnrepository.com/artifact/systems.fehn/hashids-spring-boot-starter -->
+		<dependency>
+			<groupId>systems.fehn</groupId>
+			<artifactId>hashids-spring-boot-starter</artifactId>
+			<version>1.2.0</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
 
     </dependencies>
 
